@@ -10,6 +10,8 @@ from cadastro.models import *
 class PessoaAdmin(admin.ModelAdmin):
 
     def idade2(self, obj):
+        if obj.data_nascimento is None:
+            return 0
         import datetime
         return int((datetime.date.today() - obj.data_nascimento).days / 365.25  )
 
