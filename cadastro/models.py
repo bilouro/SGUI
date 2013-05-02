@@ -225,6 +225,7 @@ class PessoaCerimonia(models.Model):
     pastor = models.ForeignKey(Pastor, related_name='pastor_cerimonia')
     igreja = models.ForeignKey(Igreja)
     ata = models.ForeignKey(Ata)
+    #todo: colocar data nesta classe (nem sempre pode ter sido no mesmo dia da ata.
 
     def __unicode__(self):
         return "%s %s" % (self.pessoa.nome, self.cerimonia.nome)

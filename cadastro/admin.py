@@ -61,7 +61,7 @@ class FamiliaAdmin(admin.ModelAdmin):
     inlines = [PessoasInlineAdmin,]
 
 class TransferenciaInlineAdmin(admin.TabularInline):
-    exclude = ['data', 'pastor', 'recepcao',]
+    exclude = ['pastor', 'recepcao',]
     model = Transferencia
     extra = 0
 
@@ -70,7 +70,7 @@ class PastorEntradaInlineAdmin(admin.TabularInline):
     verbose_name_plural = "Entrada Pastores"
     fk_name =  'ata_entrada'
     model = Pastor
-    exclude = ['pai','mae','endereco','telefone','email','cpf','identidade','estado_nascimento','profissao','obs','conjuge','orgao_expedidor', 'data_entrada', 'data_saida', 'ata_saida', 'motivo_saida', 'data_nascimento', 'data_falecimento', 'sexo', 'estado_civil', 'familias', 'grau_instrucao']
+    exclude = ['pai','mae','endereco','telefone','email','cpf','identidade','estado_nascimento','profissao','obs','conjuge','orgao_expedidor', 'data_saida', 'ata_saida', 'motivo_saida', 'data_nascimento', 'data_falecimento', 'sexo', 'estado_civil', 'familias', 'grau_instrucao']
     extra = 0
 
 class PastorSaidaInlineAdmin(admin.TabularInline):
@@ -78,7 +78,7 @@ class PastorSaidaInlineAdmin(admin.TabularInline):
     verbose_name_plural = "Saida Pastores"
     fk_name =  'ata_saida'
     model = Pastor
-    exclude = ['pai','mae','endereco','telefone','email','cpf','identidade','estado_nascimento','profissao','obs','conjuge','orgao_expedidor', 'data_entrada', 'data_saida', 'ata_entrada', 'motivo_saida', 'data_nascimento', 'data_falecimento', 'sexo', 'estado_civil', 'familias', 'grau_instrucao']
+    exclude = ['pai','mae','endereco','telefone','email','cpf','identidade','estado_nascimento','profissao','obs','conjuge','orgao_expedidor', 'data_entrada', 'ata_entrada', 'data_nascimento', 'data_falecimento', 'sexo', 'estado_civil', 'familias', 'grau_instrucao']
     extra = 0
 
 class RolEntradaInlineAdmin(admin.TabularInline):
@@ -86,7 +86,7 @@ class RolEntradaInlineAdmin(admin.TabularInline):
     verbose_name_plural = "Entradas no Rol"
     fk_name =  'ata_entrada'
     model = Rol
-    exclude = ['numero', 'data_entrada', 'pastor', 'status', 'data_saida', 'ata_saida', 'motivo_saida']
+    exclude = ['numero', 'pastor', 'status', 'data_saida', 'ata_saida', 'motivo_saida']
     extra = 0
 
 class RolSaidaInlineAdmin(admin.TabularInline):
@@ -94,7 +94,7 @@ class RolSaidaInlineAdmin(admin.TabularInline):
     verbose_name_plural = "Saidas do Rol"
     fk_name =  'ata_saida'
     model = Rol
-    exclude = ['numero', 'data_entrada', 'pastor', 'status', 'data_saida', 'ata_entrada', 'motivo_saida']
+    exclude = ['numero', 'data_entrada', 'pastor', 'status', 'ata_entrada', 'motivo_saida']
     extra = 0
 
 class PessoaCerimoniaInlineAdmin(admin.TabularInline):
@@ -116,7 +116,6 @@ class AtaAdmin(admin.ModelAdmin):
                 RolEntradaInlineAdmin,
                 RolSaidaInlineAdmin,
                 PessoaCerimoniaInlineAdmin]
-
 
 class CerimoniaAdmin(admin.ModelAdmin):
     list_display = ('nome','descricao')
